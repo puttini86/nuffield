@@ -63,17 +63,47 @@ section{padding-block:34px}
 .me img{width:150px;height:auto;border-radius:4px;display:block}
 .me h3{font-size:22px}
 .me .role{color:var(--muted);font-size:13.5px;margin-top:2px}
-.creds{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px;font-size:14px}
 .creds li{padding-left:14px;position:relative}
 .creds li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--ocre)}
 .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:16px;border-top:1px solid var(--rule);padding-top:14px}
 .nums b{display:block;font-family:var(--serif);font-size:24px;color:var(--navy);line-height:1}
 .nums span{font-size:12px;color:var(--muted);display:block;margin-top:4px;line-height:1.3}
-.mentors{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;border-top:1px solid var(--rule);padding-top:14px}
-.mentor{display:flex;gap:10px;align-items:center;min-width:0;flex:1 1 220px}
+.mentors{display:grid;gap:12px;margin-top:14px;border-top:1px solid var(--rule);padding-top:14px}
+.mh{display:flex;gap:10px;align-items:center}
+.dd{margin-top:8px}
+.dd summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--navy);list-style:none;display:inline-flex;align-items:center;gap:6px}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary::after{content:"▾";transition:transform .2s}
+.dd[open] summary::after{transform:rotate(180deg)}
+.dd p{font-size:13.5px;margin-top:8px;line-height:1.5}
+.cvl{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;border-left:2px solid var(--rule);padding-left:12px}
+.cvl li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;font-size:13.5px;line-height:1.4}
+.cvl b{font-family:var(--serif);color:var(--ocre)}
+.leg2{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12.5px;color:var(--muted);align-items:center}
+.leg2 span{display:inline-flex;gap:6px;align-items:center}
+.leg2 s{width:10px;height:10px;border-radius:50%;display:inline-block;text-decoration:none}
+.subh{font-size:20px;margin-top:22px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.it{background:var(--surface);padding:16px;border-top:3px solid var(--forest)}
+.it b{display:block;font-family:var(--serif);font-size:17px;color:var(--forest);line-height:1.25}
+.it span{display:block;font-size:13.5px;margin-top:6px}
+.allp{margin-top:12px;font-size:14px;color:var(--forest);font-weight:500}
+.sponsor{background:var(--surface2);padding:22px;border-radius:6px;margin-top:22px}
+.sponsor .it{border-color:var(--ocre)}
+.ctitle{margin-top:20px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--red)}
+.chains .it{border-top:0;border-left:3px solid var(--navy);padding:12px 14px}
+.chains .it b{font-size:15px}
+.chains .it span{font-family:var(--serif);font-style:italic;color:var(--navy)}
+.contact{grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:24px}
+.contact>*{grid-column:1}
+.mentor b{display:block;font-size:14px}
+.mentor{min-width:0}
 .mentor img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
 .mentor b{display:block;font-size:14px}
-.mentor span{display:block;font-size:12px;color:var(--muted);line-height:1.35}
+.mh span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35}
+.mh span span{display:inline}
+.mh i{font-style:normal;font-weight:600;color:var(--ocre)}
 .nuf h3{font-size:22px}
 .nuf p{font-size:14px;margin-top:10px}
 .nufnums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -139,14 +169,14 @@ section{padding-block:34px}
 .places button.dim{opacity:.35}
 /* gantt */
 .gantt{background:var(--surface);border-radius:6px;padding:20px 22px;margin-top:16px}
-.grow{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;align-items:center;min-height:44px}
+.grow{display:grid;grid-template-columns:250px minmax(0,1fr);gap:14px;align-items:center;min-height:44px}
 .glab{font-size:14px;font-weight:500;line-height:1.25}
 .glab small{display:block;font-weight:400;color:var(--muted);font-size:12px}
 .track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/23 - 1px),var(--rule) calc(100%/23 - 1px) calc(100%/23))}
 .bar{position:absolute;top:4px;bottom:4px;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:12px;font-weight:600;color:var(--onaccent);white-space:nowrap;overflow:hidden}
 .bar.dot{width:22px!important;border-radius:50%;padding:0;justify-content:center}
 .bar.planned{background:repeating-linear-gradient(45deg,var(--c-gfp) 0 6px,color-mix(in srgb,var(--c-gfp) 72%,transparent) 6px 12px)!important}
-.axis{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;margin-bottom:6px}
+.axis{display:grid;grid-template-columns:250px minmax(0,1fr);gap:14px;margin-bottom:6px}
 .years{position:relative;height:22px;font-size:12px;font-weight:600;color:var(--muted)}
 .years span{position:absolute;top:0;border-left:2px solid var(--forest);padding-left:6px}
 .today{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--ocre)}
@@ -164,11 +194,13 @@ section{padding-block:34px}
 footer{padding-block:20px 40px;font-size:12px;color:var(--muted);border-top:1px solid var(--rule);margin-top:20px}
 footer p+p{margin-top:6px}
 @media (max-width:900px){
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .map,.farm,.two,.who{grid-template-columns:1fr}
   .globe{min-height:0;aspect-ratio:1/1}
 }
 @media (max-width:620px){
-  .facts,.layers{grid-template-columns:1fr}
+  .facts,.layers,.grid4,.grid3{grid-template-columns:1fr}
   .me{grid-template-columns:96px minmax(0,1fr);gap:14px}
   .me img{width:96px}
   .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -205,13 +237,13 @@ footer p+p{margin-top:6px}
         <div>
           <h3>Pedro Puttini Mendes</h3>
           <div class="role" data-t="role"></div>
-          <ul class="creds" id="creds"></ul>
+          <details class="dd" id="cvd"><summary data-t="cvBtn"></summary><ol class="cvl" id="cvl"></ol></details>
         </div>
       </div>
       <div class="nums" id="nums"></div>
       <div class="mentors">
-        <div class="mentor"><img id="bk" alt=""><div><b>Bernhard L. Kiep</b><span data-t="bkRole"></span></div></div>
-        <div class="mentor"><img id="sp" alt=""><div><b>Samanta Pineda</b><span data-t="spRole"></span></div></div>
+        <div class="mentor"><div class="mh"><img id="bk" alt=""><div><b>Bernhard L. Kiep</b><span><i data-t="mentorLbl"></i> · <span data-t="bkTitle"></span></span></div></div><details class="dd"><summary data-t="bioBtn"></summary><p data-t="bkBio"></p></details></div>
+        <div class="mentor"><div class="mh"><img id="sp" alt=""><div><b>Samanta Pineda</b><span><i data-t="mentoraLbl"></i> · <span data-t="spTitle"></span></span></div></div><details class="dd"><summary data-t="bioBtn"></summary><p data-t="spBio"></p></details></div>
       </div>
     </div>
     <div class="card nuf">
@@ -263,6 +295,7 @@ footer p+p{margin-top:6px}
   <h2 id="h-map" data-t="mapTitle"></h2>
   <p data-t="mapIntro" style="margin-top:8px;max-width:72ch"></p>
   <div class="filters" id="filters" role="group"></div>
+  <div class="leg2" id="leg2"></div>
   <div class="map">
     <div class="globe" id="globe">
       <canvas id="cv" role="img"></canvas>
@@ -289,14 +322,24 @@ footer p+p{margin-top:6px}
 </section>
 
 <section aria-labelledby="h-out">
-  <div class="two">
-    <div class="out">
-      <div class="eyebrow" data-t="outEyebrow"></div>
-      <h2 id="h-out" data-t="outTitle" style="font-size:24px"></h2>
-      <ul id="outs"></ul>
-      <p class="src" data-t="outNote"></p>
-    </div>
-    <div class="contact">
+  <div class="eyebrow" data-t="outEyebrow"></div>
+  <h2 id="h-out" data-t="outTitle"></h2>
+  <p data-t="outIntro" style="margin-top:8px;max-width:72ch"></p>
+  <h3 class="subh" data-t="sectorTitle"></h3>
+  <div class="grid4" id="sector"></div>
+  <p class="allp" data-t="sectorAll"></p>
+  <div class="sponsor">
+    <h3 class="subh" style="margin-top:0" data-t="sponsorTitle"></h3>
+    <p data-t="sponsorIntro" style="max-width:72ch"></p>
+    <div class="grid3" id="sponsorg"></div>
+    <div class="ctitle" data-t="chainsTitle"></div>
+    <div class="grid3 chains" id="chains"></div>
+  </div>
+  <p class="src" data-t="outNote"></p>
+</section>
+
+<section aria-label="Contato">
+  <div class="contact">
       <h2 data-t="ctaTitle"></h2>
       <p data-t="ctaText"></p>
       <a class="wa" id="wa" href="https://wa.me/5567999396596" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span data-t="wa"></span></a>
@@ -304,7 +347,6 @@ footer p+p{margin-top:6px}
       <div class="mail"><code>+55 67 99939-6596</code></div>
       <p style="font-size:13px;opacity:.85" data-t="ctaNote"></p>
     </div>
-  </div>
 </section>
 
 <footer>
@@ -498,29 +540,122 @@ const PIT={
  bru:{n:"Bruxelles",c:"Belgio"}, mex:{n:"Messico",c:"Città del Messico (riferimento)"}
 };
 P.forEach(p=>p.it=PIT[p.id]);
+/* ---- v3 additions: CV, mentors, programme stages, deliverables ---- */
+const XT={
+pt:{cvBtn:"Ver trajetória",
+ cv:[["2008","Graduação em Direito (UCDB)"],["2011","Sócio-diretor da P&M Advocacia Agrária, Ambiental e Imobiliária"],["2013–16","Presidência da Comissão de Assuntos Agrários e Agronegócio da OAB/MS"],["2015–24","Docência em pós-graduação, MBAs e treinamentos do agro: FIA Business School, IPOG, Novoeste, FAESC, Rehagro, Senar/MS, Famasul, Bayer, Rabobank e Itaú"],["2016–19","Mestrado em Desenvolvimento Local (UCDB): Pantanal sul-mato-grossense, atribuição territorial, legislação e desenvolvimento local"],["2020–25","Doutorado em Planejamento Territorial e Desenvolvimento Socioambiental (UDESC): gestão territorial de Reservas Legais com uso econômico"],["2023+","Consultoria jurídica em regularização ambiental e prevenção de desmatamento em cadeias agropecuárias"],["2027","Aprovado para participar do Nuffield Global Agribusiness Program, selecionado entre 30 candidatos e 17 finalistas"]],
+ mentorLbl:"Mentor", mentoraLbl:"Mentora", bioBtn:"Ver currículo",
+ bkTitle:"Diretor-geral da BERMAD Brasil",
+ bkBio:"Diretor-geral da BERMAD Brasil, com mais de 30 anos de experiência em liderança no agronegócio. Integra a diretoria da Abramilho e atuou como presidente da MAIZALL, aliança internacional de produtores de milho de Brasil, Argentina e Estados Unidos. É membro do Board da Pessl Instruments/METOS e assessor de agronegócio da HBS Alumni Angels of Brazil. Concluiu o Program for Management Development da Harvard Business School.",
+ spTitle:"Advogada socioambiental, fundadora da Pineda & Krahn",
+ spBio:"Advogada especialista em Direito Socioambiental e fundadora do Pineda & Krahn, escritório criado em 2001. Atua há mais de duas décadas na interface entre meio ambiente, agronegócio, regularização e políticas públicas. Professora de Direito Ambiental em programas da FGV e do Insper, atuou como consultora jurídica no Congresso Nacional e apresentou o programa Ação Sustentável na TV Terra Viva/Grupo Band. Em 2026, recebeu reconhecimento do Congresso ANDAV na categoria Defesa do Setor.",
+ stages:{all:"Todas as etapas",csc:"CSC",gfp:"GFP",ind:"Pesquisa individual"},
+ stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Pesquisa individual"},
+ stageDesc:{csc:"Conferência que reúne os Scholars do ano de todos os países da rede, no início do programa.",gfp:"Programa coletivo de imersão técnica com Scholars de vários países. Rota prevista, ainda sem programação divulgada.",ind:"Casos escolhidos pela própria pesquisa: seis territórios no Brasil e seis países."},
+ legendLbl:"Cor de cada caso: a camada que ele mais responde",
+ mapIntro:"Escolha uma etapa do programa Nuffield para ver os lugares de cada uma. Clique num ponto ou num nome da lista para ver a pergunta que aquele lugar ajuda a responder.",
+ introTitle:"As etapas do programa", introText:"",
+ cscText:"Abertura do programa, com os Scholars de 2027 de todos os países da rede. Primeiro contato com a rede internacional que apoiará a pesquisa.",
+ gfpText:"Parada prevista do Global Focus Programme, o programa coletivo de imersão técnica da Nuffield. A programação ainda não foi divulgada e a rota pode mudar.",
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbábue","",1,1,"--navy","dot"],["Pesquisa individual · Brasil","6 territórios","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · rota prevista","Out–nov",9,10,"--c-gfp","planned"],["Pesquisa individual · exterior","6 países","Dez–jul",11,18,"--c-rec",""],["Relatório e apresentações","relatório Nuffield, guia e devolutivas","Ago–dez",19,23,"--ocre",""]],
+ outEyebrow:"Entregas", outTitle:"O que a pesquisa entrega",
+ outIntro:"Conhecimento aplicado para quem produz, para as cadeias do agro e, de forma direcionada, para quem apoia a pesquisa.",
+ sectorTitle:"Para o setor",
+ sector:[["Produtores","Um guia dos caminhos para gerar valor com a Reserva Legal e com o histórico de conservação, e critérios para demonstrar desempenho."],["Empresas e cadeias","Benchmark internacional de reconhecimento e reputação, e modelos de atributo de origem para a cadeia."],["Bancos e seguradoras","Indicadores que ajudem a diferenciar crédito e seguro para quem tem bom histórico de conservação."],["Governo","Recomendações para reconhecer e simplificar a vida de quem conserva, e subsídios para discutir equivalência internacional."]],
+ sectorAll:"E para todos: relatório Nuffield publicado, workshops e uma rede de conexões em seis países.",
+ sponsorTitle:"Para quem apoia",
+ sponsorIntro:"Patrocinar esta pesquisa é estar à frente da conversa sobre produção, conservação, mercados e reputação do agro brasileiro.",
+ sponsor:[["Treinamentos e workshops","Devolutivas e capacitações para o seu time e os seus clientes, com o que foi visto no Brasil e no exterior."],["Pesquisa direcionada","Um olhar dedicado às perguntas da sua cadeia, levadas a campo nos casos nacionais e internacionais."],["Inteligência e benchmark","O que os melhores casos do mundo estão fazendo, em relatórios executivos de leitura rápida."],["Conexões","Acesso a produtores, empresas e instituições em seis países e na rede Nuffield."],["Posicionamento","A sua marca ao lado do estudo, nos canais da Nuffield."],["Reputação","Associação a uma agenda positiva do agro brasileiro."]],
+ chainsTitle:"Exemplos de perguntas por cadeia",
+ chains:[["Milho e etanol","Como o histórico de conservação valoriza o milho e o etanol de milho em mercados exigentes?"],["Soja","Como transformar conformidade em acesso a mercado?"],["Pecuária","Como a produção que convive com vegetação nativa pode ser reconhecida por frigoríficos e compradores?"],["Café, cacau e erva-mate","Como origem e floresta em pé viram preço e preferência?"],["Crédito e seguro","Como o histórico de conservação pode reduzir risco e melhorar condições?"],["Insumos e revendas","Como apoiar e reconhecer os clientes que conservam?"]],
+ outNote:"Possíveis entregas, em desenvolvimento e sem obrigação contratual. Contrapartidas e formato de divulgação sujeitos à validação da Nuffield Brasil. A independência da pesquisa é preservada."},
+en:{cvBtn:"View career",
+ cv:[["2008","Law degree (UCDB)"],["2011","Managing partner, P&M Advocacia Agrária, Ambiental e Imobiliária"],["2013–16","Chair of the Agrarian and Agribusiness Affairs Committee, Brazilian Bar Association (OAB/MS)"],["2015–24","Teaching in graduate programmes, MBAs and agribusiness training: FIA Business School, IPOG, Novoeste, FAESC, Rehagro, Senar/MS, Famasul, Bayer, Rabobank and Itaú"],["2016–19","Master's in Local Development (UCDB): the Pantanal of Mato Grosso do Sul, territorial attribution, legislation and local development"],["2020–25","PhD in Territorial Planning and Socio-Environmental Development (UDESC): territorial management of Legal Reserves with economic use"],["2023+","Legal consulting on environmental compliance and deforestation prevention in agricultural supply chains"],["2027","Approved to take part in the Nuffield Global Agribusiness Program, selected from 30 applicants and 17 finalists"]],
+ mentorLbl:"Mentor", mentoraLbl:"Mentor", bioBtn:"View profile",
+ bkTitle:"Managing Director, BERMAD Brasil",
+ bkBio:"Managing Director of BERMAD Brasil, with more than 30 years of leadership experience in agribusiness. Board member of Abramilho (Brazilian Corn Producers Association) and former president of MAIZALL, the international alliance of corn growers from Brazil, Argentina and the United States. Board member of Pessl Instruments/METOS and agribusiness advisor to HBS Alumni Angels of Brazil. Completed the Program for Management Development at Harvard Business School.",
+ spTitle:"Socio-environmental lawyer, founder of Pineda & Krahn",
+ spBio:"Lawyer specializing in Socio-Environmental Law and founder of Pineda & Krahn, a firm established in 2001. For more than two decades she has worked at the interface of environment, agribusiness, regulatory compliance and public policy. Professor of Environmental Law in programmes at FGV and Insper, she served as legal consultant to the Brazilian National Congress and hosted the programme Ação Sustentável on TV Terra Viva/Grupo Band. In 2026 she received recognition from the ANDAV Congress in the Defense of the Sector category.",
+ stages:{all:"All stages",csc:"CSC",gfp:"GFP",ind:"Individual research"},
+ stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Individual research"},
+ stageDesc:{csc:"Conference bringing together the year's Scholars from every country in the network, at the start of the programme.",gfp:"Group programme of technical immersion with Scholars from several countries. Planned route; itinerary not yet released.",ind:"Cases chosen by the research itself: six territories in Brazil and six countries."},
+ legendLbl:"Colour of each case: the layer it answers most",
+ mapIntro:"Pick a stage of the Nuffield programme to see its places. Click a point or a name in the list to see the question that place helps answer.",
+ introTitle:"The programme stages", introText:"",
+ cscText:"Opening of the programme, with the 2027 Scholars from every country in the network. First contact with the international network that will support the research.",
+ gfpText:"Planned stop of the Global Focus Programme, Nuffield's group programme of technical immersion. The itinerary has not been released and the route may change.",
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Individual research · Brazil","6 territories","Mar–Sep",2,8,"--forest",""],["GFP","Global Focus Programme · planned route","Oct–Nov",9,10,"--c-gfp","planned"],["Individual research · abroad","6 countries","Dec–Jul",11,18,"--c-rec",""],["Report and presentations","Nuffield report, guide and feedback sessions","Aug–Dec",19,23,"--ocre",""]],
+ outEyebrow:"Deliverables", outTitle:"What the research delivers",
+ outIntro:"Applied knowledge for farmers, for agribusiness supply chains and, in a targeted way, for those who support the research.",
+ sectorTitle:"For the sector",
+ sector:[["Farmers","A guide to the pathways for creating value from the Legal Reserve and a conservation track record, and criteria to demonstrate performance."],["Companies and supply chains","International benchmark of recognition and reputation, and origin-attribute models for the chain."],["Banks and insurers","Indicators that help differentiate credit and insurance for those with a good conservation track record."],["Government","Recommendations to recognize and simplify life for those who conserve, and input for discussing international equivalence."]],
+ sectorAll:"And for everyone: a published Nuffield report, workshops and a network of connections in six countries.",
+ sponsorTitle:"For supporters",
+ sponsorIntro:"Sponsoring this research puts you at the forefront of the conversation on production, conservation, markets and reputation in Brazilian agribusiness.",
+ sponsor:[["Training and workshops","Feedback sessions and training for your team and your clients, built on what was seen in Brazil and abroad."],["Targeted research","A dedicated look at the questions of your supply chain, taken into the field in Brazilian and international cases."],["Intelligence and benchmark","What the best cases in the world are doing, in quick-read executive reports."],["Connections","Access to farmers, companies and institutions in six countries and across the Nuffield network."],["Positioning","Your brand alongside the study, on Nuffield channels."],["Reputation","Association with a positive agenda for Brazilian agribusiness."]],
+ chainsTitle:"Examples of questions by supply chain",
+ chains:[["Corn and ethanol","How does a conservation track record add value to corn and corn ethanol in demanding markets?"],["Soybeans","How can compliance be turned into market access?"],["Cattle","How can production that coexists with native vegetation be recognized by meatpackers and buyers?"],["Coffee, cocoa and yerba mate","How do origin and standing forest turn into price and preference?"],["Credit and insurance","How can a conservation track record reduce risk and improve terms?"],["Inputs and retailers","How can clients who conserve be supported and recognized?"]],
+ outNote:"Possible outputs, under development and not a contractual obligation. Sponsor benefits and outreach format are subject to validation by Nuffield Brasil. The independence of the research is preserved."},
+it:{cvBtn:"Vedi il percorso",
+ cv:[["2008","Laurea in Giurisprudenza (UCDB)"],["2011","Socio amministratore di P&M Advocacia Agrária, Ambiental e Imobiliária"],["2013–16","Presidenza della Commissione per gli Affari Agrari e l'Agribusiness dell'Ordine degli Avvocati (OAB/MS)"],["2015–24","Docenza in corsi post-laurea, MBA e formazione per il settore agricolo: FIA Business School, IPOG, Novoeste, FAESC, Rehagro, Senar/MS, Famasul, Bayer, Rabobank e Itaú"],["2016–19","Master in Sviluppo Locale (UCDB): il Pantanal del Mato Grosso do Sul, attribuzione territoriale, legislazione e sviluppo locale"],["2020–25","Dottorato in Pianificazione Territoriale e Sviluppo Socio-ambientale (UDESC): gestione territoriale delle Riserve Legali con uso economico"],["2023+","Consulenza legale su regolarizzazione ambientale e prevenzione della deforestazione nelle filiere agricole"],["2027","Ammesso al Nuffield Global Agribusiness Program, selezionato tra 30 candidati e 17 finalisti"]],
+ mentorLbl:"Mentore", mentoraLbl:"Mentore", bioBtn:"Vedi il profilo",
+ bkTitle:"Direttore generale di BERMAD Brasil",
+ bkBio:"Direttore generale di BERMAD Brasil, con oltre 30 anni di esperienza di leadership nell'agribusiness. Fa parte del consiglio direttivo di Abramilho (associazione brasiliana dei produttori di mais) ed è stato presidente di MAIZALL, l'alleanza internazionale dei produttori di mais di Brasile, Argentina e Stati Uniti. È membro del Board di Pessl Instruments/METOS e consulente per l'agribusiness di HBS Alumni Angels of Brazil. Ha completato il Program for Management Development della Harvard Business School.",
+ spTitle:"Avvocata socio-ambientale, fondatrice di Pineda & Krahn",
+ spBio:"Avvocata specializzata in Diritto Socio-ambientale e fondatrice di Pineda & Krahn, studio fondato nel 2001. Da oltre vent'anni lavora all'incrocio tra ambiente, agribusiness, regolarizzazione e politiche pubbliche. Docente di Diritto Ambientale nei programmi di FGV e Insper, è stata consulente legale presso il Congresso Nazionale brasiliano e ha condotto il programma Ação Sustentável su TV Terra Viva/Grupo Band. Nel 2026 ha ricevuto un riconoscimento dal Congresso ANDAV nella categoria Difesa del Settore.",
+ stages:{all:"Tutte le fasi",csc:"CSC",gfp:"GFP",ind:"Ricerca individuale"},
+ stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Ricerca individuale"},
+ stageDesc:{csc:"Conferenza che riunisce gli Scholar dell'anno di tutti i paesi della rete, all'inizio del programma.",gfp:"Programma collettivo di immersione tecnica con Scholar di diversi paesi. Percorso previsto, calendario non ancora pubblicato.",ind:"Casi scelti dalla ricerca stessa: sei territori in Brasile e sei paesi."},
+ legendLbl:"Colore di ogni caso: il livello a cui risponde di più",
+ mapIntro:"Scegli una fase del programma Nuffield per vederne i luoghi. Clicca su un punto o su un nome dell'elenco per vedere la domanda a cui quel luogo aiuta a rispondere.",
+ introTitle:"Le fasi del programma", introText:"",
+ cscText:"Apertura del programma, con gli Scholar 2027 di tutti i paesi della rete. Primo contatto con la rete internazionale che sosterrà la ricerca.",
+ gfpText:"Tappa prevista del Global Focus Programme, il programma collettivo di immersione tecnica di Nuffield. Il calendario non è ancora stato pubblicato e il percorso può cambiare.",
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Ricerca individuale · Brasile","6 territori","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · percorso previsto","Ott–nov",9,10,"--c-gfp","planned"],["Ricerca individuale · estero","6 paesi","Dic–lug",11,18,"--c-rec",""],["Rapporto e presentazioni","rapporto Nuffield, guida e restituzioni","Ago–dic",19,23,"--ocre",""]],
+ outEyebrow:"Risultati", outTitle:"Che cosa offre la ricerca",
+ outIntro:"Conoscenza applicata per chi produce, per le filiere agroalimentari e, in modo mirato, per chi sostiene la ricerca.",
+ sectorTitle:"Per il settore",
+ sector:[["Produttori","Una guida ai percorsi per generare valore con la Riserva Legale e con una storia di conservazione, e criteri per dimostrare i risultati."],["Imprese e filiere","Benchmark internazionale di riconoscimento e reputazione, e modelli di attributo d'origine per la filiera."],["Banche e assicurazioni","Indicatori che aiutino a differenziare credito e assicurazione per chi ha una buona storia di conservazione."],["Governo","Raccomandazioni per riconoscere e semplificare la vita di chi conserva, e contributi per discutere l'equivalenza internazionale."]],
+ sectorAll:"E per tutti: rapporto Nuffield pubblicato, workshop e una rete di contatti in sei paesi.",
+ sponsorTitle:"Per chi sostiene",
+ sponsorIntro:"Sostenere questa ricerca significa essere in prima linea nel dibattito su produzione, conservazione, mercati e reputazione dell'agroalimentare brasiliano.",
+ sponsor:[["Formazione e workshop","Restituzioni e formazione per il suo team e i suoi clienti, basate su quanto visto in Brasile e all'estero."],["Ricerca mirata","Uno sguardo dedicato alle domande della sua filiera, portate sul campo nei casi brasiliani e internazionali."],["Intelligence e benchmark","Che cosa fanno i migliori casi al mondo, in rapporti esecutivi di lettura rapida."],["Connessioni","Accesso a produttori, imprese e istituzioni in sei paesi e nella rete Nuffield."],["Posizionamento","Il suo marchio accanto allo studio, sui canali Nuffield."],["Reputazione","Associazione a un'agenda positiva dell'agroalimentare brasiliano."]],
+ chainsTitle:"Esempi di domande per filiera",
+ chains:[["Mais ed etanolo","Come una storia di conservazione valorizza il mais e l'etanolo di mais nei mercati esigenti?"],["Soia","Come trasformare la conformità in accesso al mercato?"],["Allevamento","Come la produzione che convive con la vegetazione nativa può essere riconosciuta da macelli e acquirenti?"],["Caffè, cacao ed erva mate","Come diventano origine e foresta in piedi prezzo e preferenza?"],["Credito e assicurazione","Come una storia di conservazione può ridurre il rischio e migliorare le condizioni?"],["Input e rivenditori","Come sostenere e riconoscere i clienti che conservano?"]],
+ outNote:"Possibili risultati, in fase di sviluppo e senza obbligo contrattuale. Contropartite e formato di divulgazione soggetti a validazione di Nuffield Brasil. L'indipendenza della ricerca è preservata."}
+};
+for(const k of ["pt","en","it"]) Object.assign(T[k],XT[k]);
+const STG={br:["ind"],intl:["ind"],gfp:["gfp"],csc:["csc"]};
+P.push({id:"zw",k:"csc",iso:"ZWE",lon:29.5,lat:-19.0,L:[],pt:{n:"Zimbábue",c:"Contemporary Scholars Conference · fev 2027"},en:{n:"Zimbabwe",c:"Contemporary Scholars Conference · Feb 2027"},it:{n:"Zimbabwe",c:"Contemporary Scholars Conference · feb 2027"}});
+P.forEach(p=>{p.S=STG[p.k].slice();if(p.gfp)p.S.unshift("gfp");p.L=p.L.filter(x=>x!=="gfp")});
+const SC={csc:"--navy",gfp:"--c-gfp",ind:"--forest"};
+
 
 let lang=["#en","#it"].includes(location.hash)?location.hash.slice(1):"pt", sel=null, filt="all";
 const $=s=>document.querySelector(s);
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const LC={uso:"--c-uso",inc:"--c-inc",rec:"--c-rec",gfp:"--c-gfp"};
-function inFilter(p){return filt==="all"||(filt==="gfp"?(p.k==="gfp"||p.gfp):p.L.includes(filt))}
+function inFilter(p){return filt==="all"||p.S.includes(filt)}
 function render(){
  const t=T[lang]; document.documentElement.lang={pt:"pt-BR",en:"en",it:"it"}[lang];
  document.querySelectorAll("[data-t]").forEach(e=>{const v=t[e.dataset.t]; if(typeof v==="string") e.textContent=v});
  $("#lang-pt").setAttribute("aria-pressed",lang==="pt"); $("#lang-en").setAttribute("aria-pressed",lang==="en"); $("#lang-it").setAttribute("aria-pressed",lang==="it");
  $("#farmimg").src=ASSETS["farm_"+(lang==="pt"?"pt":"en")]; $("#farmimg").alt=t.farmAlt;
  $("#cv").setAttribute("aria-label",t.canvasLabel);
- $("#creds").innerHTML=t.creds.map(x=>`<li>${x}</li>`).join("");
+ $("#cvl").innerHTML=t.cv.map(x=>`<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join("");
  $("#nums").innerHTML=t.nums.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
  $("#nufnums").innerHTML=t.nufnums.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
  const cols=["--forest","--c-out","--c-inc","--c-water","--c-other"];
  $("#wlegend").innerHTML=t.leg.map((l,i)=>`<div><s style="background:var(${cols[i]})"></s><span><b>${l[0]}</b> ${l[1]}</span></div>`).join("");
- $("#filters").innerHTML=Object.entries(t.filters).map(([k,v])=>`<button data-f="${k}" aria-pressed="${filt===k}" class="${k==="gfp"?"ring":""}">${k==="all"?"":`<s style="background:var(${LC[k]})"></s>`}${v}</button>`).join("");
+ $("#filters").innerHTML=["all","csc","gfp","ind"].map(k=>`<button data-f="${k}" aria-pressed="${filt===k}" title="${k==="all"?"":t.stageFull[k]}">${k==="all"?"":`<s style="background:var(${SC[k]})"></s>`}${t.stages[k]}</button>`).join("");
+ $("#leg2").innerHTML=`<span>${t.legendLbl}:</span>`+["uso","inc","rec"].map(k=>`<span><s style="background:var(${LC[k]})"></s>${t.layerNames[k]}</span>`).join("");
  $("#filters").setAttribute("aria-label",t.mapEyebrow);
  document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{filt=b.dataset.f;render();draw()});
  gantt(t);
  $("#wa").href="https://wa.me/5567999396596?text="+encodeURIComponent(t.waMsg);
- $("#outs").innerHTML=t.outs.map(x=>`<li>${x}</li>`).join("");
+ $("#sector").innerHTML=t.sector.map(x=>`<div class="it"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+ $("#sponsorg").innerHTML=t.sponsor.map(x=>`<div class="it"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+ $("#chains").innerHTML=t.chains.map(x=>`<div class="it"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
  $("#plist").innerHTML=P.map(p=>`<button data-id="${p.id}" aria-current="${sel===p.id}" class="${inFilter(p)?"":"dim"}">${p[lang].n.replace(/ — .*/,"")}</button>`).join("");
  document.querySelectorAll("#plist button").forEach(b=>b.onclick=()=>choose(b.dataset.id,true));
  panel();
@@ -536,12 +671,14 @@ function gantt(t){
 }
 function panel(){
  const t=T[lang]; const p=P.find(x=>x.id===sel); let h="";
- if(!p){h=`<div class="tag">${t.introTag}</div><h3>${t.introTitle}</h3><p>${t.introText}</p><div class="chips">${["uso","inc","rec"].map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}</div>`}
+ const stchip=k=>`<span style="box-shadow:inset 3px 0 0 var(${SC[k]})">${t.stages[k]}</span>`;
+ if(!p){h=`<div class="tag">${t.introTag}</div><h3>${t.introTitle}</h3><dl>${["csc","gfp","ind"].map(k=>`<div><dt style="color:var(${SC[k]})">${t.stages[k]}${k==="ind"?"":" · "+t.stageFull[k]}</dt><dd>${t.stageDesc[k]}</dd></div>`).join("")}</dl>`}
  else{const d=p[lang]; const fl=p.f?`<img src="${ASSETS["flag_"+p.f]}" alt="">`:"";
-  const chips=`<div class="chips">${p.L.filter(k=>k!=="gfp").map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}${p.gfp?`<span style="box-shadow:inset 3px 0 0 var(--c-gfp)">${t.gfpTag}</span>`:""}</div>`;
+  const chips=`<div class="chips">${p.S.map(stchip).join("")}${p.L.map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}</div>`;
   if(p.k==="br") h=`<div class="tag">${t.brTag}</div><h3>${fl}${d.n}</h3>${chips}<dl><div><dt>${t.dtGround}</dt><dd>${d.g}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div></dl>`;
   else if(p.k==="intl") h=`<div class="tag">${t.intlTag}</div><h3>${fl}${d.n}</h3><div class="place">${d.c}</div>${chips}<dl><div><dt>${t.dtSeek}</dt><dd>${d.s}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div><div><dt>${t.dtBack}</dt><dd>${d.b}</dd></div></dl>`;
-  else h=`<div class="tag">${t.gfpTag}</div><h3>${d.n}</h3><div class="place">${d.c}</div><p>${t.gfpText}</p>`;
+  else if(p.k==="csc") h=`<div class="tag">CSC · ${t.stageFull.csc}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.cscText}</p>`;
+  else h=`<div class="tag">GFP · ${t.stageFull.gfp}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.gfpText}</p>`;
  }
  $("#pbody").innerHTML=h;
 }
@@ -579,7 +716,7 @@ function draw(){
   ctx.beginPath();path({type:"Sphere"});ctx.fillStyle=c.ocean;ctx.fill();
   ctx.beginPath();path(d3.geoGraticule10());ctx.strokeStyle=c.rim;ctx.lineWidth=.5;ctx.stroke();
   ctx.beginPath();path(LAND);ctx.fillStyle=c.land;ctx.fill();
-  const byIso={BRA:{fill:c.br,on:true}};P.filter(p=>p.iso).forEach(p=>{byIso[p.iso]=p.k==="gfp"?{fill:css("--c-gfp"),on:inFilter(p),a:.35}:hl(p)});
+  const byIso={BRA:{fill:c.br,on:filt==="all"||filt==="ind"}};P.filter(p=>p.iso).forEach(p=>{byIso[p.iso]=p.k==="gfp"?{fill:css("--c-gfp"),on:inFilter(p),a:.35}:p.k==="csc"?{fill:css("--navy"),on:inFilter(p),a:.35}:hl(p)});
   for(const f of COUNTRIES){const s=byIso[f.id];if(!s)continue;ctx.globalAlpha=(s.on?(s.a||.85):.25);ctx.beginPath();path(f);ctx.fillStyle=s.fill;ctx.fill()}
   ctx.globalAlpha=1;ctx.beginPath();path(LAND);ctx.strokeStyle=c.border;ctx.lineWidth=.6;ctx.stroke();
   ctx.setLineDash([5,5]);ctx.lineWidth=1.6;
@@ -595,8 +732,9 @@ function draw(){
  }
  HIT.length=0;
  for(const p of P){const [x,y,v]=project(p.lon,p.lat);if(!v)continue;const on=inFilter(p);const r=p.k==="br"?5:7;ctx.globalAlpha=on?1:.25;
-  if(p.k!=="gfp"){ctx.beginPath();ctx.arc(x,y,r+(sel===p.id?3:0),0,7);ctx.fillStyle=p.k==="br"?css("--ocre"):css(LC[p.L[0]]);ctx.fill();ctx.lineWidth=2;ctx.strokeStyle=c.surface;ctx.stroke()}
-  if(p.gfp||p.k==="gfp"){ctx.beginPath();ctx.arc(x,y,r+(p.k==="gfp"?0:5),0,7);ctx.lineWidth=2.2;ctx.strokeStyle=css("--c-gfp");ctx.stroke()}
+  if(p.L.length){ctx.beginPath();ctx.arc(x,y,r+(sel===p.id?3:0),0,7);ctx.fillStyle=p.k==="br"?css("--ocre"):css(LC[p.L[0]]);ctx.fill();ctx.lineWidth=2;ctx.strokeStyle=c.surface;ctx.stroke()}
+  if(p.S.includes("gfp")){ctx.beginPath();ctx.arc(x,y,r+(p.L.length?5:0),0,7);ctx.lineWidth=2.2;ctx.strokeStyle=css("--c-gfp");ctx.stroke()}
+  if(p.k==="csc"){ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.lineWidth=2.6;ctx.strokeStyle=css("--navy");ctx.stroke()}
   if(p.k!=="br"&&on){ctx.font="600 12px Poppins, system-ui, sans-serif";ctx.textBaseline="middle";const lab=p[lang].n;ctx.lineWidth=3.5;ctx.strokeStyle=c.surface;ctx.strokeText(lab,x+r+7,y);ctx.fillStyle=c.ink;ctx.fillText(lab,x+r+7,y)}
   ctx.globalAlpha=1;HIT.push([x,y,p.id])}
 }
