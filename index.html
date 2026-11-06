@@ -709,7 +709,7 @@ function panel(){
  else{const d=p[lang]; const fl=p.f?`<img src="${ASSETS["flag_"+p.f]}" alt="">`:"";
   const chips=`<div class="chips">${p.S.map(stchip).join("")}${p.L.map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}</div>`;
   if(p.k==="br") h=`<div class="tag">${t.brTag}</div><h3>${fl}${d.n}</h3>${chips}<dl><div><dt>${t.dtGround}</dt><dd>${d.g}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div></dl>`;
-  else if(p.k==="intl") h=`<div class="tag">${t.intlTag}</div><h3>${fl}${d.n}</h3><div class="place">${d.c}</div>${chips}${d.nt?`<p style="font-size:13.5px;border-left:3px solid var(--c-gfp);padding-left:10px">${d.nt}</p>`:""}<dl><div><dt>${t.dtSeek}</dt><dd>${d.s}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div><div><dt>${t.dtBack}</dt><dd>${d.b}</dd></div></dl>`;
+  else if(p.k==="intl") h=`<div class="tag">${p.S.includes("ind")?t.intlTag:"GFP · "+t.stageFull.gfp}</div><h3>${fl}${d.n}</h3><div class="place">${d.c}</div>${chips}${d.nt?`<p style="font-size:13.5px;border-left:3px solid var(--c-gfp);padding-left:10px">${d.nt}</p>`:""}<dl><div><dt>${t.dtSeek}</dt><dd>${d.s}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div><div><dt>${t.dtBack}</dt><dd>${d.b}</dd></div></dl>`;
   else if(p.k==="csc") h=`<div class="tag">CSC · ${t.stageFull.csc}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.cscText}</p>`;
   else h=`<div class="tag">GFP · ${t.stageFull.gfp}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.gfpText}</p>`;
  }
@@ -753,7 +753,7 @@ function draw(){
   for(const f of COUNTRIES){const s=byIso[f.id];if(!s)continue;ctx.globalAlpha=(s.on?(s.a||.85):.25);ctx.beginPath();path(f);ctx.fillStyle=s.fill;ctx.fill()}
   ctx.globalAlpha=1;ctx.beginPath();path(LAND);ctx.strokeStyle=c.border;ctx.lineWidth=.6;ctx.stroke();
   ctx.setLineDash([5,5]);ctx.lineWidth=1.6;
-  for(const p of P.filter(p=>p.k==="intl")){ctx.globalAlpha=inFilter(p)?.85:.15;ctx.strokeStyle=css(LC[p.L[0]]);ctx.beginPath();path({type:"LineString",coordinates:[ORIG,[p.lon,p.lat]]});ctx.stroke()}
+  for(const p of P.filter(p=>p.k==="intl"&&p.S.includes("ind"))){ctx.globalAlpha=inFilter(p)?.85:.15;ctx.strokeStyle=css(LC[p.L[0]]);ctx.beginPath();path({type:"LineString",coordinates:[ORIG,[p.lon,p.lat]]});ctx.stroke()}
   ctx.setLineDash([]);ctx.globalAlpha=1;
   ctx.beginPath();path({type:"Sphere"});ctx.strokeStyle=c.rim;ctx.lineWidth=1;ctx.stroke();
  } else {
