@@ -83,6 +83,15 @@ section{padding-block:34px}
 .leg2 span{display:inline-flex;gap:6px;align-items:center}
 .leg2 s{width:10px;height:10px;border-radius:50%;display:inline-block;text-decoration:none}
 .subh{font-size:20px;margin-top:22px}
+.stagebox{background:var(--surface);border-radius:6px;padding:18px 22px;margin-top:16px}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.stg{border-top:3px solid var(--forest);padding-top:10px}
+.stg b{display:block;font-family:var(--serif);font-size:17px}
+.stg small{display:block;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.stg p{font-size:13.5px;margin-top:6px}
+.allpl{background:var(--surface);border-radius:6px;padding:16px 20px;margin-top:14px;border-top:0}
+.allpl .subh{font-size:17px}
+.allpl #plist{margin-top:10px}
 .also{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
 .acard{background:var(--surface);padding:20px 22px;border-left:4px solid var(--ocre);display:grid;gap:8px;align-content:start}
 .acard h3{font-size:20px}
@@ -213,7 +222,7 @@ footer p+p{margin-top:6px}
   .globe{min-height:0;aspect-ratio:1/1}
 }
 @media (max-width:620px){
-  .facts,.layers,.grid4,.grid3,.also{grid-template-columns:1fr}
+  .facts,.layers,.grid4,.grid3,.also,.stages{grid-template-columns:1fr}
   .me{grid-template-columns:96px minmax(0,1fr);gap:14px}
   .me img{width:96px}
   .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -304,17 +313,17 @@ footer p+p{margin-top:6px}
   </div>
 </section>
 
-<section aria-labelledby="h-tl">
-  <div class="eyebrow" data-t="tlEyebrow"></div>
-  <h2 id="h-tl" data-t="tlTitle"></h2>
-  <div class="gantt" id="gantt"></div>
-  <p class="src" data-t="tlNote"></p>
-</section>
 
 <section aria-labelledby="h-map" id="mapa">
-  <div class="eyebrow" data-t="mapEyebrow"></div>
-  <h2 id="h-map" data-t="mapTitle"></h2>
-  <p data-t="mapIntro" style="margin-top:8px;max-width:72ch"></p>
+  <div class="eyebrow" data-t="jEyebrow"></div>
+  <h2 id="h-map" data-t="jTitle"></h2>
+  <div class="stagebox">
+    <div class="eyebrow" style="color:var(--muted)" data-t="introTag"></div>
+    <h3 class="subh" style="margin-top:4px" data-t="introTitle"></h3>
+    <div class="stages" id="stages"></div>
+  </div>
+  <h3 class="subh" data-t="mapTitle"></h3>
+  <p data-t="mapIntro" style="margin-top:6px;max-width:72ch"></p>
   <div class="filters" id="filters" role="group"></div>
   <div class="leg2" id="leg2"></div>
   <div class="map">
@@ -330,11 +339,18 @@ footer p+p{margin-top:6px}
     </div>
     <aside class="panel" aria-live="polite">
       <div id="pbody"></div>
-      <div class="places"><p data-t="allPlaces"></p><div id="plist"></div></div>
     </aside>
   </div>
+  <div class="places allpl"><h3 class="subh" style="margin-top:0" data-t="allPlaces"></h3><div id="plist"></div></div>
 </section>
 
+
+<section aria-labelledby="h-tl">
+  <div class="eyebrow" data-t="tlEyebrow"></div>
+  <h2 id="h-tl" data-t="tlTitle"></h2>
+  <div class="gantt" id="gantt"></div>
+  <p class="src" data-t="tlNote"></p>
+</section>
 
 <section aria-labelledby="h-out">
   <div class="eyebrow" data-t="outEyebrow"></div>
@@ -654,6 +670,8 @@ it:{cvBtn:"Vedi il percorso",
 for(const k of ["pt","en","it"]) Object.assign(T[k],XT[k]);
 const ALSO={"pt": {"alsoEyebrow": "Além da Nuffield", "alsoTitle": "Também em andamento", "bookStatus": "Em escrita e revisão", "bookTitle": "Livro sobre o uso econômico da Reserva Legal", "bookText": "Desdobramento da tese de doutorado (UDESC), o livro explora caminhos para o uso econômico sustentável de áreas de Reserva Legal. Será enriquecido com os casos e as comparações internacionais da jornada Nuffield.", "isStatus": "Em validação em campo", "isTitle": "Plataforma IS-ARL", "isText": "Modelo multidimensional de indicadores, proposto na tese, para avaliar a sustentabilidade do uso econômico da Reserva Legal. A plataforma já foi idealizada e está hospedada, em fase de validação e aplicação em campo.", "alsoLink": "Os casos da pesquisa Nuffield, no Brasil e no exterior, ajudam a testar os indicadores do IS-ARL e alimentam o livro."}, "en": {"alsoEyebrow": "Beyond Nuffield", "alsoTitle": "Also under way", "bookStatus": "Being written and revised", "bookTitle": "Book on the economic use of the Legal Reserve", "bookText": "An outgrowth of the doctoral thesis (UDESC), the book explores pathways for the sustainable economic use of Legal Reserve areas. It will be enriched with the cases and international comparisons from the Nuffield journey.", "isStatus": "Field validation", "isTitle": "IS-ARL platform", "isText": "A multidimensional set of indicators, proposed in the thesis, to assess the sustainability of the economic use of the Legal Reserve. The platform has been designed and is online, now being validated and applied in the field.", "alsoLink": "The Nuffield research cases, in Brazil and abroad, help test the IS-ARL indicators and feed into the book."}, "it": {"alsoEyebrow": "Oltre Nuffield", "alsoTitle": "Anche in corso", "bookStatus": "In scrittura e revisione", "bookTitle": "Libro sull'uso economico della Riserva Legale", "bookText": "Sviluppo della tesi di dottorato (UDESC), il libro esplora percorsi per l'uso economico sostenibile delle aree di Riserva Legale. Sarà arricchito con i casi e i confronti internazionali del percorso Nuffield.", "isStatus": "In validazione sul campo", "isTitle": "Piattaforma IS-ARL", "isText": "Un insieme multidimensionale di indicatori, proposto nella tesi, per valutare la sostenibilità dell'uso economico della Riserva Legale. La piattaforma è stata ideata ed è online, ora in fase di validazione e applicazione sul campo.", "alsoLink": "I casi della ricerca Nuffield, in Brasile e all'estero, aiutano a testare gli indicatori IS-ARL e alimentano il libro."}};
 for(const k of ["pt","en","it"]) Object.assign(T[k],ALSO[k]);
+const JNY={"pt": {"jEyebrow": "Mapa de perguntas", "jTitle": "Jornada Nuffield 2027/2028", "pickHint": "Clique num ponto do globo ou num lugar da lista abaixo para ver a pergunta que ele ajuda a responder.", "mapIntro": "Filtre por etapa do programa e explore os lugares no globo."}, "en": {"jEyebrow": "Map of questions", "jTitle": "Nuffield Journey 2027/2028", "pickHint": "Click a point on the globe or a place in the list below to see the question it helps answer.", "mapIntro": "Filter by programme stage and explore the places on the globe."}, "it": {"jEyebrow": "Mappa delle domande", "jTitle": "Percorso Nuffield 2027/2028", "pickHint": "Clicca su un punto del globo o su un luogo dell'elenco qui sotto per vedere la domanda a cui aiuta a rispondere.", "mapIntro": "Filtra per fase del programma ed esplora i luoghi sul globo."}};
+for(const k of ["pt","en","it"]) Object.assign(T[k],JNY[k]);
 const STG={br:["ind"],intl:["ind"],gfp:["gfp"],csc:["csc"]};
 P.push({id:"pt",k:"intl",iso:"PRT",lon:-7.9,lat:38.57,f:"PT",L:["uso"],
  pt:{n:"Portugal",c:"Alentejo · montado",s:"O montado de sobreiro e azinheira: árvores protegidas por lei, com uso econômico regulado (cortiça, pecuária, mel) em clima mediterrâneo seco.",q:"Como diversificar a renda sem abrir novas áreas, a partir de uma vegetação protegida por lei?",b:"Lições de uso múltiplo e regulado da vegetação nativa, aplicáveis à Reserva Legal."},
@@ -684,6 +702,7 @@ function render(){
  const cols=["--forest","--c-out","--c-inc","--c-water","--c-other"];
  $("#wlegend").innerHTML=t.leg.map((l,i)=>`<div><s style="background:var(${cols[i]})"></s><span><b>${l[0]}</b> ${l[1]}</span></div>`).join("");
  $("#filters").innerHTML=["all","csc","gfp","ind"].map(k=>`<button data-f="${k}" aria-pressed="${filt===k}" title="${k==="all"?"":t.stageFull[k]}">${k==="all"?"":`<s style="background:var(${SC[k]})"></s>`}${t.stages[k]}</button>`).join("");
+ $("#stages").innerHTML=["csc","gfp","ind"].map(k=>`<div class="stg" style="border-color:var(${SC[k]})"><b style="color:var(${SC[k]})">${t.stages[k]}</b>${k==="ind"?"":`<small>${t.stageFull[k]}</small>`}<p>${t.stageDesc[k]}</p></div>`).join("");
  $("#leg2").innerHTML=`<span>${t.legendLbl}:</span>`+["uso","inc","rec"].map(k=>`<span><s style="background:var(${LC[k]})"></s>${t.layerNames[k]}</span>`).join("");
  $("#filters").setAttribute("aria-label",t.mapEyebrow);
  document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{filt=b.dataset.f;render();draw()});
@@ -708,7 +727,7 @@ function gantt(t){
 function panel(){
  const t=T[lang]; const p=P.find(x=>x.id===sel); let h="";
  const stchip=k=>`<span style="box-shadow:inset 3px 0 0 var(${SC[k]})">${t.stages[k]}</span>`;
- if(!p){h=`<div class="tag">${t.introTag}</div><h3>${t.introTitle}</h3><dl>${["csc","gfp","ind"].map(k=>`<div><dt style="color:var(${SC[k]})">${t.stages[k]}${k==="ind"?"":" · "+t.stageFull[k]}</dt><dd>${t.stageDesc[k]}</dd></div>`).join("")}</dl>`}
+ if(!p){h=`<div class="tag">${t.mapTitle}</div><p>${t.pickHint}</p>`}
  else{const d=p[lang]; const fl=p.f?`<img src="${ASSETS["flag_"+p.f]}" alt="">`:"";
   const chips=`<div class="chips">${p.S.map(stchip).join("")}${p.L.map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}</div>`;
   if(p.k==="br") h=`<div class="tag">${t.brTag}</div><h3>${fl}${d.n}</h3>${chips}<dl><div><dt>${t.dtGround}</dt><dd>${d.g}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div></dl>`;
