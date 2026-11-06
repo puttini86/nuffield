@@ -745,8 +745,8 @@ function render(){
  $("#impacc").innerHTML=t.imp.map((x,i)=>`<details class="acc"${op[i]?" open":""}><summary><span class="at">${x[0]}</span><span class="as">${x[1]}</span></summary><div class="impbody"><ul>${x[2].map(y=>`<li>${y}</li>`).join("")}</ul></div></details>`).join("");}
  $("#odsstrip").innerHTML=t.ods.map(o=>`<span class="ods" style="background:${o[1]}" title="${o[2]}">${o[0]}</span>`).join("");
  $("#odslist").innerHTML=t.ods.map(o=>`<div class="odsrow"><span class="ods" style="background:${o[1]}">${o[0]}</span><div><b>${o[2]}</b>${o[3]}</div></div>`).join("");
- $("#sphotos").innerHTML=t.caps.map((c,i)=>`<button type="button" data-i="${i}"><img src="${ASSETS["story"+i]}" alt="${c}"><span>${c}</span></button>`).join("");
- document.querySelectorAll("#sphotos button").forEach(b=>b.onclick=()=>{const d=$("#lb"),i=b.dataset.i;d.querySelector("img").src=ASSETS["story"+i];d.querySelector("img").alt=t.caps[i];d.querySelector("p").textContent=t.caps[i];$("#lbx").setAttribute("aria-label",t.close);try{d.showModal()}catch(e){d.setAttribute("open","")}});
+ $("#sphotos").innerHTML=t.caps.map((c,i)=>`<button type="button" data-i="${i}"><img src="${ASSETS["story"+i]}" alt="${c}"></button>`).join("");
+ document.querySelectorAll("#sphotos button").forEach(b=>b.onclick=()=>{const d=$("#lb"),i=b.dataset.i;d.querySelector("img").src=ASSETS["story"+i];d.querySelector("img").alt=t.caps[i];d.querySelector("p").textContent="";$("#lbx").setAttribute("aria-label",t.close);try{d.showModal()}catch(e){d.setAttribute("open","")}});
  $("#stages").innerHTML=["csc","gfp","ind"].map(k=>`<div class="stg" style="border-color:var(${SC[k]})"><b style="color:var(${SC[k]})">${t.stages[k]}</b>${k==="ind"?"":`<small>${t.stageFull[k]}</small>`}<p>${t.stageDesc[k]}</p></div>`).join("");
  $("#leg2").innerHTML=`<span>${t.legendLbl}:</span>`+["uso","inc","rec"].map(k=>`<span><s style="background:var(${LC[k]})"></s>${t.layerNames[k]}</span>`).join("");
  $("#filters").setAttribute("aria-label",t.mapEyebrow);
