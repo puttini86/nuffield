@@ -89,7 +89,15 @@ section{padding-block:34px}
 .it b{display:block;font-family:var(--serif);font-size:17px;color:var(--forest);line-height:1.25}
 .it span{display:block;font-size:13.5px;margin-top:6px}
 .allp{margin-top:12px;font-size:14px;color:var(--forest);font-weight:500}
-.sponsor{background:var(--surface2);padding:22px;border-radius:6px;margin-top:22px}
+.acc{background:var(--surface2);border-radius:6px;margin-top:14px}
+.acc summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:18px 22px;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"▾";grid-row:1/3;grid-column:2;font-size:20px;color:var(--forest);transition:transform .2s}
+.acc[open] summary::after{transform:rotate(180deg)}
+.acc .at{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--forest)}
+.acc .as{font-size:14px;color:var(--muted);grid-column:1}
+.acc>.grid3{padding:0 22px 22px;margin-top:0}
+.sponsor{margin-top:22px}
 .sponsor .it{border-color:var(--ocre)}
 .ctitle{margin-top:20px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--red)}
 .chains .it{border-top:0;border-left:3px solid var(--navy);padding:12px 14px}
@@ -169,14 +177,14 @@ section{padding-block:34px}
 .places button.dim{opacity:.35}
 /* gantt */
 .gantt{background:var(--surface);border-radius:6px;padding:20px 22px;margin-top:16px}
-.grow{display:grid;grid-template-columns:250px minmax(0,1fr);gap:14px;align-items:center;min-height:44px}
+.grow{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;align-items:center;min-height:44px}
 .glab{font-size:14px;font-weight:500;line-height:1.25}
 .glab small{display:block;font-weight:400;color:var(--muted);font-size:12px}
 .track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/23 - 1px),var(--rule) calc(100%/23 - 1px) calc(100%/23))}
 .bar{position:absolute;top:4px;bottom:4px;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:12px;font-weight:600;color:var(--onaccent);white-space:nowrap;overflow:hidden}
 .bar.dot{width:22px!important;border-radius:50%;padding:0;justify-content:center}
 .bar.planned{background:repeating-linear-gradient(45deg,var(--c-gfp) 0 6px,color-mix(in srgb,var(--c-gfp) 72%,transparent) 6px 12px)!important}
-.axis{display:grid;grid-template-columns:250px minmax(0,1fr);gap:14px;margin-bottom:6px}
+.axis{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;margin-bottom:6px}
 .years{position:relative;height:22px;font-size:12px;font-weight:600;color:var(--muted)}
 .years span{position:absolute;top:0;border-left:2px solid var(--forest);padding-left:6px}
 .today{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--ocre)}
@@ -328,13 +336,14 @@ footer p+p{margin-top:6px}
   <h3 class="subh" data-t="sectorTitle"></h3>
   <div class="grid4" id="sector"></div>
   <p class="allp" data-t="sectorAll"></p>
-  <div class="sponsor">
-    <h3 class="subh" style="margin-top:0" data-t="sponsorTitle"></h3>
-    <p data-t="sponsorIntro" style="max-width:72ch"></p>
+  <details class="acc sponsor">
+    <summary><span class="at" data-t="sponsorTitle"></span><span class="as" data-t="sponsorIntro"></span></summary>
     <div class="grid3" id="sponsorg"></div>
-    <div class="ctitle" data-t="chainsTitle"></div>
+  </details>
+  <details class="acc chainsacc">
+    <summary><span class="at" data-t="chainsTitle"></span><span class="as" data-t="chainsNote"></span></summary>
     <div class="grid3 chains" id="chains"></div>
-  </div>
+  </details>
   <p class="src" data-t="outNote"></p>
 </section>
 
@@ -551,22 +560,22 @@ pt:{cvBtn:"Ver trajetória",
  spBio:"Advogada especialista em Direito Socioambiental e fundadora do Pineda & Krahn, escritório criado em 2001. Atua há mais de duas décadas na interface entre meio ambiente, agronegócio, regularização e políticas públicas. Professora de Direito Ambiental em programas da FGV e do Insper, atuou como consultora jurídica no Congresso Nacional e apresentou o programa Ação Sustentável na TV Terra Viva/Grupo Band. Em 2026, recebeu reconhecimento do Congresso ANDAV na categoria Defesa do Setor.",
  stages:{all:"Todas as etapas",csc:"CSC",gfp:"GFP",ind:"Pesquisa individual"},
  stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Pesquisa individual"},
- stageDesc:{csc:"Conferência que reúne os Scholars do ano de todos os países da rede, no início do programa.",gfp:"Programa coletivo de imersão técnica com Scholars de vários países. Rota prevista, ainda sem programação divulgada.",ind:"Casos escolhidos pela própria pesquisa: seis territórios no Brasil e seis países."},
+ stageDesc:{csc:"Conferência que reúne os Scholars do ano de todos os países da rede, no início do programa.",gfp:"Programa coletivo de imersão técnica com Scholars de vários países. Rota prevista, ainda sem programação divulgada.",ind:"Casos escolhidos pela própria pesquisa: seis territórios no Brasil e cinco países. A Índia entra aqui só se a agenda do GFP não bastar."},
  legendLbl:"Cor de cada caso: a camada que ele mais responde",
  mapIntro:"Escolha uma etapa do programa Nuffield para ver os lugares de cada uma. Clique num ponto ou num nome da lista para ver a pergunta que aquele lugar ajuda a responder.",
  introTitle:"As etapas do programa", introText:"",
  cscText:"Abertura do programa, com os Scholars de 2027 de todos os países da rede. Primeiro contato com a rede internacional que apoiará a pesquisa.",
  gfpText:"Parada prevista do Global Focus Programme, o programa coletivo de imersão técnica da Nuffield. A programação ainda não foi divulgada e a rota pode mudar.",
- gantt:[["CSC","Contemporary Scholars Conference · Zimbábue","",1,1,"--navy","dot"],["Pesquisa individual · Brasil","6 territórios","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · rota prevista","Out–nov",9,10,"--c-gfp","planned"],["Pesquisa individual · exterior","6 países","Dez–jul",11,18,"--c-rec",""],["Relatório e apresentações","relatório Nuffield, guia e devolutivas","Ago–dez",19,23,"--ocre",""]],
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbábue","",1,1,"--navy","dot"],["Pesquisa individual · Brasil","6 territórios","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · rota prevista","Out–nov",9,10,"--c-gfp","planned"],["Pesquisa individual · exterior","5 países · Índia se necessário","Dez–jul",11,18,"--c-rec",""],["Relatório e apresentações","relatório Nuffield, guia e devolutivas","Ago–dez",19,23,"--ocre",""]],
  outEyebrow:"Entregas", outTitle:"O que a pesquisa entrega",
  outIntro:"Conhecimento aplicado para quem produz, para as cadeias do agro e, de forma direcionada, para quem apoia a pesquisa.",
  sectorTitle:"Para o setor",
  sector:[["Produtores","Um guia dos caminhos para gerar valor com a Reserva Legal e com o histórico de conservação, e critérios para demonstrar desempenho."],["Empresas e cadeias","Benchmark internacional de reconhecimento e reputação, e modelos de atributo de origem para a cadeia."],["Bancos e seguradoras","Indicadores que ajudem a diferenciar crédito e seguro para quem tem bom histórico de conservação."],["Governo","Recomendações para reconhecer e simplificar a vida de quem conserva, e subsídios para discutir equivalência internacional."]],
- sectorAll:"E para todos: relatório Nuffield publicado, workshops e uma rede de conexões em seis países.",
+ sectorAll:"E para todos: relatório Nuffield publicado, workshops e uma rede de conexões no Brasil e no exterior.",
  sponsorTitle:"Para quem apoia",
  sponsorIntro:"Patrocinar esta pesquisa é estar à frente da conversa sobre produção, conservação, mercados e reputação do agro brasileiro.",
- sponsor:[["Treinamentos e workshops","Devolutivas e capacitações para o seu time e os seus clientes, com o que foi visto no Brasil e no exterior."],["Pesquisa direcionada","Um olhar dedicado às perguntas da sua cadeia, levadas a campo nos casos nacionais e internacionais."],["Inteligência e benchmark","O que os melhores casos do mundo estão fazendo, em relatórios executivos de leitura rápida."],["Conexões","Acesso a produtores, empresas e instituições em seis países e na rede Nuffield."],["Posicionamento","A sua marca ao lado do estudo, nos canais da Nuffield."],["Reputação","Associação a uma agenda positiva do agro brasileiro."]],
- chainsTitle:"Exemplos de perguntas por cadeia",
+ sponsor:[["Treinamentos e workshops","Devolutivas e capacitações para o seu time e os seus clientes, com o que foi visto no Brasil e no exterior."],["Pesquisa direcionada","Um olhar dedicado às perguntas da sua cadeia, levadas a campo nos casos nacionais e internacionais."],["Inteligência e benchmark","O que os melhores casos do mundo estão fazendo, em relatórios executivos de leitura rápida."],["Conexões","Acesso a produtores, empresas e instituições nos países da pesquisa e na rede Nuffield."],["Posicionamento","A sua marca ao lado do estudo, nos canais da Nuffield."],["Reputação","Associação a uma agenda positiva do agro brasileiro."]],
+ chainsTitle:"Exemplos de perguntas por cadeia", chainsNote:"Sua empresa pode trazer as perguntas da sua cadeia para dentro da pesquisa.",
  chains:[["Milho e etanol","Como o histórico de conservação valoriza o milho e o etanol de milho em mercados exigentes?"],["Soja","Como transformar conformidade em acesso a mercado?"],["Pecuária","Como a produção que convive com vegetação nativa pode ser reconhecida por frigoríficos e compradores?"],["Café, cacau e erva-mate","Como origem e floresta em pé viram preço e preferência?"],["Crédito e seguro","Como o histórico de conservação pode reduzir risco e melhorar condições?"],["Insumos e revendas","Como apoiar e reconhecer os clientes que conservam?"]],
  outNote:"Possíveis entregas, em desenvolvimento e sem obrigação contratual. Contrapartidas e formato de divulgação sujeitos à validação da Nuffield Brasil. A independência da pesquisa é preservada."},
 en:{cvBtn:"View career",
@@ -578,22 +587,22 @@ en:{cvBtn:"View career",
  spBio:"Lawyer specializing in Socio-Environmental Law and founder of Pineda & Krahn, a firm established in 2001. For more than two decades she has worked at the interface of environment, agribusiness, regulatory compliance and public policy. Professor of Environmental Law in programmes at FGV and Insper, she served as legal consultant to the Brazilian National Congress and hosted the programme Ação Sustentável on TV Terra Viva/Grupo Band. In 2026 she received recognition from the ANDAV Congress in the Defense of the Sector category.",
  stages:{all:"All stages",csc:"CSC",gfp:"GFP",ind:"Individual research"},
  stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Individual research"},
- stageDesc:{csc:"Conference bringing together the year's Scholars from every country in the network, at the start of the programme.",gfp:"Group programme of technical immersion with Scholars from several countries. Planned route; itinerary not yet released.",ind:"Cases chosen by the research itself: six territories in Brazil and six countries."},
+ stageDesc:{csc:"Conference bringing together the year's Scholars from every country in the network, at the start of the programme.",gfp:"Group programme of technical immersion with Scholars from several countries. Planned route; itinerary not yet released.",ind:"Cases chosen by the research itself: six territories in Brazil and five countries. India is added here only if the GFP agenda is not enough."},
  legendLbl:"Colour of each case: the layer it answers most",
  mapIntro:"Pick a stage of the Nuffield programme to see its places. Click a point or a name in the list to see the question that place helps answer.",
  introTitle:"The programme stages", introText:"",
  cscText:"Opening of the programme, with the 2027 Scholars from every country in the network. First contact with the international network that will support the research.",
  gfpText:"Planned stop of the Global Focus Programme, Nuffield's group programme of technical immersion. The itinerary has not been released and the route may change.",
- gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Individual research · Brazil","6 territories","Mar–Sep",2,8,"--forest",""],["GFP","Global Focus Programme · planned route","Oct–Nov",9,10,"--c-gfp","planned"],["Individual research · abroad","6 countries","Dec–Jul",11,18,"--c-rec",""],["Report and presentations","Nuffield report, guide and feedback sessions","Aug–Dec",19,23,"--ocre",""]],
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Individual research · Brazil","6 territories","Mar–Sep",2,8,"--forest",""],["GFP","Global Focus Programme · planned route","Oct–Nov",9,10,"--c-gfp","planned"],["Individual research · abroad","5 countries · India if needed","Dec–Jul",11,18,"--c-rec",""],["Report and presentations","Nuffield report, guide and feedback sessions","Aug–Dec",19,23,"--ocre",""]],
  outEyebrow:"Deliverables", outTitle:"What the research delivers",
  outIntro:"Applied knowledge for farmers, for agribusiness supply chains and, in a targeted way, for those who support the research.",
  sectorTitle:"For the sector",
  sector:[["Farmers","A guide to the pathways for creating value from the Legal Reserve and a conservation track record, and criteria to demonstrate performance."],["Companies and supply chains","International benchmark of recognition and reputation, and origin-attribute models for the chain."],["Banks and insurers","Indicators that help differentiate credit and insurance for those with a good conservation track record."],["Government","Recommendations to recognize and simplify life for those who conserve, and input for discussing international equivalence."]],
- sectorAll:"And for everyone: a published Nuffield report, workshops and a network of connections in six countries.",
+ sectorAll:"And for everyone: a published Nuffield report, workshops and a network of connections in Brazil and abroad.",
  sponsorTitle:"For supporters",
  sponsorIntro:"Sponsoring this research puts you at the forefront of the conversation on production, conservation, markets and reputation in Brazilian agribusiness.",
- sponsor:[["Training and workshops","Feedback sessions and training for your team and your clients, built on what was seen in Brazil and abroad."],["Targeted research","A dedicated look at the questions of your supply chain, taken into the field in Brazilian and international cases."],["Intelligence and benchmark","What the best cases in the world are doing, in quick-read executive reports."],["Connections","Access to farmers, companies and institutions in six countries and across the Nuffield network."],["Positioning","Your brand alongside the study, on Nuffield channels."],["Reputation","Association with a positive agenda for Brazilian agribusiness."]],
- chainsTitle:"Examples of questions by supply chain",
+ sponsor:[["Training and workshops","Feedback sessions and training for your team and your clients, built on what was seen in Brazil and abroad."],["Targeted research","A dedicated look at the questions of your supply chain, taken into the field in Brazilian and international cases."],["Intelligence and benchmark","What the best cases in the world are doing, in quick-read executive reports."],["Connections","Access to farmers, companies and institutions in the research countries and across the Nuffield network."],["Positioning","Your brand alongside the study, on Nuffield channels."],["Reputation","Association with a positive agenda for Brazilian agribusiness."]],
+ chainsTitle:"Examples of questions by supply chain", chainsNote:"Your company can bring its supply chain's questions into the research.",
  chains:[["Corn and ethanol","How does a conservation track record add value to corn and corn ethanol in demanding markets?"],["Soybeans","How can compliance be turned into market access?"],["Cattle","How can production that coexists with native vegetation be recognized by meatpackers and buyers?"],["Coffee, cocoa and yerba mate","How do origin and standing forest turn into price and preference?"],["Credit and insurance","How can a conservation track record reduce risk and improve terms?"],["Inputs and retailers","How can clients who conserve be supported and recognized?"]],
  outNote:"Possible outputs, under development and not a contractual obligation. Sponsor benefits and outreach format are subject to validation by Nuffield Brasil. The independence of the research is preserved."},
 it:{cvBtn:"Vedi il percorso",
@@ -605,22 +614,22 @@ it:{cvBtn:"Vedi il percorso",
  spBio:"Avvocata specializzata in Diritto Socio-ambientale e fondatrice di Pineda & Krahn, studio fondato nel 2001. Da oltre vent'anni lavora all'incrocio tra ambiente, agribusiness, regolarizzazione e politiche pubbliche. Docente di Diritto Ambientale nei programmi di FGV e Insper, è stata consulente legale presso il Congresso Nazionale brasiliano e ha condotto il programma Ação Sustentável su TV Terra Viva/Grupo Band. Nel 2026 ha ricevuto un riconoscimento dal Congresso ANDAV nella categoria Difesa del Settore.",
  stages:{all:"Tutte le fasi",csc:"CSC",gfp:"GFP",ind:"Ricerca individuale"},
  stageFull:{csc:"Contemporary Scholars Conference",gfp:"Global Focus Programme",ind:"Ricerca individuale"},
- stageDesc:{csc:"Conferenza che riunisce gli Scholar dell'anno di tutti i paesi della rete, all'inizio del programma.",gfp:"Programma collettivo di immersione tecnica con Scholar di diversi paesi. Percorso previsto, calendario non ancora pubblicato.",ind:"Casi scelti dalla ricerca stessa: sei territori in Brasile e sei paesi."},
+ stageDesc:{csc:"Conferenza che riunisce gli Scholar dell'anno di tutti i paesi della rete, all'inizio del programma.",gfp:"Programma collettivo di immersione tecnica con Scholar di diversi paesi. Percorso previsto, calendario non ancora pubblicato.",ind:"Casi scelti dalla ricerca stessa: sei territori in Brasile e cinque paesi. L'India si aggiunge qui solo se il programma del GFP non basta."},
  legendLbl:"Colore di ogni caso: il livello a cui risponde di più",
  mapIntro:"Scegli una fase del programma Nuffield per vederne i luoghi. Clicca su un punto o su un nome dell'elenco per vedere la domanda a cui quel luogo aiuta a rispondere.",
  introTitle:"Le fasi del programma", introText:"",
  cscText:"Apertura del programma, con gli Scholar 2027 di tutti i paesi della rete. Primo contatto con la rete internazionale che sosterrà la ricerca.",
  gfpText:"Tappa prevista del Global Focus Programme, il programma collettivo di immersione tecnica di Nuffield. Il calendario non è ancora stato pubblicato e il percorso può cambiare.",
- gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Ricerca individuale · Brasile","6 territori","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · percorso previsto","Ott–nov",9,10,"--c-gfp","planned"],["Ricerca individuale · estero","6 paesi","Dic–lug",11,18,"--c-rec",""],["Rapporto e presentazioni","rapporto Nuffield, guida e restituzioni","Ago–dic",19,23,"--ocre",""]],
+ gantt:[["CSC","Contemporary Scholars Conference · Zimbabwe","",1,1,"--navy","dot"],["Ricerca individuale · Brasile","6 territori","Mar–set",2,8,"--forest",""],["GFP","Global Focus Programme · percorso previsto","Ott–nov",9,10,"--c-gfp","planned"],["Ricerca individuale · estero","5 paesi · India se necessario","Dic–lug",11,18,"--c-rec",""],["Rapporto e presentazioni","rapporto Nuffield, guida e restituzioni","Ago–dic",19,23,"--ocre",""]],
  outEyebrow:"Risultati", outTitle:"Che cosa offre la ricerca",
  outIntro:"Conoscenza applicata per chi produce, per le filiere agroalimentari e, in modo mirato, per chi sostiene la ricerca.",
  sectorTitle:"Per il settore",
  sector:[["Produttori","Una guida ai percorsi per generare valore con la Riserva Legale e con una storia di conservazione, e criteri per dimostrare i risultati."],["Imprese e filiere","Benchmark internazionale di riconoscimento e reputazione, e modelli di attributo d'origine per la filiera."],["Banche e assicurazioni","Indicatori che aiutino a differenziare credito e assicurazione per chi ha una buona storia di conservazione."],["Governo","Raccomandazioni per riconoscere e semplificare la vita di chi conserva, e contributi per discutere l'equivalenza internazionale."]],
- sectorAll:"E per tutti: rapporto Nuffield pubblicato, workshop e una rete di contatti in sei paesi.",
+ sectorAll:"E per tutti: rapporto Nuffield pubblicato, workshop e una rete di contatti in Brasile e all'estero.",
  sponsorTitle:"Per chi sostiene",
  sponsorIntro:"Sostenere questa ricerca significa essere in prima linea nel dibattito su produzione, conservazione, mercati e reputazione dell'agroalimentare brasiliano.",
- sponsor:[["Formazione e workshop","Restituzioni e formazione per il suo team e i suoi clienti, basate su quanto visto in Brasile e all'estero."],["Ricerca mirata","Uno sguardo dedicato alle domande della sua filiera, portate sul campo nei casi brasiliani e internazionali."],["Intelligence e benchmark","Che cosa fanno i migliori casi al mondo, in rapporti esecutivi di lettura rapida."],["Connessioni","Accesso a produttori, imprese e istituzioni in sei paesi e nella rete Nuffield."],["Posizionamento","Il suo marchio accanto allo studio, sui canali Nuffield."],["Reputazione","Associazione a un'agenda positiva dell'agroalimentare brasiliano."]],
- chainsTitle:"Esempi di domande per filiera",
+ sponsor:[["Formazione e workshop","Restituzioni e formazione per il suo team e i suoi clienti, basate su quanto visto in Brasile e all'estero."],["Ricerca mirata","Uno sguardo dedicato alle domande della sua filiera, portate sul campo nei casi brasiliani e internazionali."],["Intelligence e benchmark","Che cosa fanno i migliori casi al mondo, in rapporti esecutivi di lettura rapida."],["Connessioni","Accesso a produttori, imprese e istituzioni nei paesi della ricerca e nella rete Nuffield."],["Posizionamento","Il suo marchio accanto allo studio, sui canali Nuffield."],["Reputazione","Associazione a un'agenda positiva dell'agroalimentare brasiliano."]],
+ chainsTitle:"Esempi di domande per filiera", chainsNote:"La sua azienda può portare le domande della sua filiera all'interno della ricerca.",
  chains:[["Mais ed etanolo","Come una storia di conservazione valorizza il mais e l'etanolo di mais nei mercati esigenti?"],["Soia","Come trasformare la conformità in accesso al mercato?"],["Allevamento","Come la produzione che convive con la vegetazione nativa può essere riconosciuta da macelli e acquirenti?"],["Caffè, cacao ed erva mate","Come diventano origine e foresta in piedi prezzo e preferenza?"],["Credito e assicurazione","Come una storia di conservazione può ridurre il rischio e migliorare le condizioni?"],["Input e rivenditori","Come sostenere e riconoscere i clienti che conservano?"]],
  outNote:"Possibili risultati, in fase di sviluppo e senza obbligo contrattuale. Contropartite e formato di divulgazione soggetti a validazione di Nuffield Brasil. L'indipendenza della ricerca è preservata."}
 };
@@ -629,6 +638,9 @@ const STG={br:["ind"],intl:["ind"],gfp:["gfp"],csc:["csc"]};
 P.push({id:"zw",k:"csc",iso:"ZWE",lon:29.5,lat:-19.0,L:[],pt:{n:"Zimbábue",c:"Contemporary Scholars Conference · fev 2027"},en:{n:"Zimbabwe",c:"Contemporary Scholars Conference · Feb 2027"},it:{n:"Zimbabwe",c:"Contemporary Scholars Conference · feb 2027"}});
 P.forEach(p=>{p.S=STG[p.k].slice();if(p.gfp)p.S.unshift("gfp");p.L=p.L.filter(x=>x!=="gfp")});
 const SC={csc:"--navy",gfp:"--c-gfp",ind:"--forest"};
+(()=>{const i=P.find(p=>p.id==="in"),c=P.find(p=>p.id==="cr");i.S=["gfp"];
+ i.pt.nt="Prevista no GFP. Uma visita individual só entra se a agenda do GFP não cobrir esta pergunta.";i.en.nt="Planned in the GFP. An individual visit is added only if the GFP agenda does not cover this question.";i.it.nt="Prevista nel GFP. Una visita individuale si aggiunge solo se il programma del GFP non copre questa domanda.";
+ c.pt.nt="No GFP e em uma semana de pesquisa individual logo após o programa coletivo.";c.en.nt="In the GFP and in a week of individual research right after the group programme.";c.it.nt="Nel GFP e in una settimana di ricerca individuale subito dopo il programma collettivo.";})();
 
 
 let lang=["#en","#it"].includes(location.hash)?location.hash.slice(1):"pt", sel=null, filt="all";
@@ -676,7 +688,7 @@ function panel(){
  else{const d=p[lang]; const fl=p.f?`<img src="${ASSETS["flag_"+p.f]}" alt="">`:"";
   const chips=`<div class="chips">${p.S.map(stchip).join("")}${p.L.map(k=>`<span style="box-shadow:inset 3px 0 0 var(${LC[k]})">${t.layerNames[k]}</span>`).join("")}</div>`;
   if(p.k==="br") h=`<div class="tag">${t.brTag}</div><h3>${fl}${d.n}</h3>${chips}<dl><div><dt>${t.dtGround}</dt><dd>${d.g}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div></dl>`;
-  else if(p.k==="intl") h=`<div class="tag">${t.intlTag}</div><h3>${fl}${d.n}</h3><div class="place">${d.c}</div>${chips}<dl><div><dt>${t.dtSeek}</dt><dd>${d.s}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div><div><dt>${t.dtBack}</dt><dd>${d.b}</dd></div></dl>`;
+  else if(p.k==="intl") h=`<div class="tag">${t.intlTag}</div><h3>${fl}${d.n}</h3><div class="place">${d.c}</div>${chips}${d.nt?`<p style="font-size:13.5px;border-left:3px solid var(--c-gfp);padding-left:10px">${d.nt}</p>`:""}<dl><div><dt>${t.dtSeek}</dt><dd>${d.s}</dd></div><div><dt>${t.dtQ}</dt><dd class="qq">${d.q}</dd></div><div><dt>${t.dtBack}</dt><dd>${d.b}</dd></div></dl>`;
   else if(p.k==="csc") h=`<div class="tag">CSC · ${t.stageFull.csc}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.cscText}</p>`;
   else h=`<div class="tag">GFP · ${t.stageFull.gfp}</div><h3>${d.n}</h3><div class="place">${d.c}</div>${chips}<p>${t.gfpText}</p>`;
  }
